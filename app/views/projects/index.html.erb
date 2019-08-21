@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Project List</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Total hours</td>
+        <td>Average hours</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.id %></td>
+          <td><%= link_to project.name, project %></td>
+          <td><%= project.tasks.sum(:hours) %></td>
+          <td><%= project.tasks.average(:hours).to_f %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

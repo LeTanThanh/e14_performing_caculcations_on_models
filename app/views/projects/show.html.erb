@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Project <%= @project.name %></h2>
+  <p>Total hours: <%= @tasks.sum(:hours) %></p>
+  <p>Average hours: <%= @tasks.average(:hours) %></p>
+  <p>Minimum hours: <%= @tasks.minimum(:hours) %></p>
+  <p>Maximum hours: <%= @tasks.maximum(:hours) %></p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Hours</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.name %></td>
+          <td><%= task.hours %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
